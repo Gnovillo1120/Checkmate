@@ -15,7 +15,7 @@ class MongoMonitorsRepository implements IMonitorsRepository {
 				channelId: new mongoose.Types.ObjectId(monitor.escalation.channelId),
 			};
 		}
-		const monitorModel = new MonitorModel({ payload });
+		const monitorModel = new MonitorModel(payload);
 		const saved = await monitorModel.save();
 		return this.toEntity(saved);
 	};
